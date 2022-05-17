@@ -13,7 +13,8 @@ public class StudentOrderValidator {
             } else {
                 AnswerCityRegister cityAnswer = checkCityRegister(so);
                 if (!cityAnswer.success) {
-                    continue;
+                    //continue;
+                    break;
                 }
 
                 AnswerWedding wedAnswer = checkWedding(so);
@@ -31,7 +32,16 @@ public class StudentOrderValidator {
     }
 
     static AnswerCityRegister checkCityRegister(StudentOrder so) {
-        return CityRegisterValidator.checkCityRegister(so);
+        CityRegisterValidator crv1 = new CityRegisterValidator();
+        crv1.hostName = "Host1";
+
+        CityRegisterValidator crv2 = new CityRegisterValidator();
+        crv2.hostName = "Host2";
+
+        AnswerCityRegister ans1 = crv1.checkCityRegister(so);
+        AnswerCityRegister ans2 = crv2.checkCityRegister(so);
+
+        return ans1;
     }
 
     static AnswerWedding checkWedding(StudentOrder so) {

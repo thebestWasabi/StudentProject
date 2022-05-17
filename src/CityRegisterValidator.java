@@ -1,7 +1,9 @@
 public class CityRegisterValidator {
 
-    static AnswerCityRegister checkCityRegister(StudentOrder so) {
-        System.out.println("city проверяется");
+    String hostName;
+
+    AnswerCityRegister checkCityRegister(StudentOrder so) {
+        System.out.println("city проверяется " + hostName);
         AnswerCityRegister asr = new AnswerCityRegister();
         asr.success = false;
         return asr;
