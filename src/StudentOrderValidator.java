@@ -7,15 +7,21 @@ public class StudentOrderValidator {
     static void checkAll() {
         StudentOrder so = readStudentOrder();
 
-        if (so == null) {
-            return;
-        } else {
-            AnswerCityRegister cityRegister = checkCityRegister(so);
-            AnswerWedding wedAnswer = checkWedding(so);
-            AnswerChildren childAnswer = checkChildren(so);
-            AnswerStudent studentAnswer = checkStudent(so);
+        while (true) {
+            if (so == null) {
+                break;
+            } else {
+                AnswerCityRegister cityAnswer = checkCityRegister(so);
+                if (!cityAnswer.success) {
+                    continue;
+                }
 
-            sendMail(so);
+                AnswerWedding wedAnswer = checkWedding(so);
+                AnswerChildren childAnswer = checkChildren(so);
+                AnswerStudent studentAnswer = checkStudent(so);
+
+                sendMail(so);
+            }
         }
     }
 
@@ -25,9 +31,7 @@ public class StudentOrderValidator {
     }
 
     static AnswerCityRegister checkCityRegister(StudentOrder so) {
-        System.out.println("city проверяется");
-        AnswerCityRegister asr = new AnswerCityRegister();
-        return asr;
+        return CityRegisterValidator.checkCityRegister(so);
     }
 
     static AnswerWedding checkWedding(StudentOrder so) {
@@ -46,7 +50,7 @@ public class StudentOrderValidator {
     }
 
     static void sendMail(StudentOrder so) {
-
+        System.out.println("mail отправлен");
     }
 
 }
