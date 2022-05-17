@@ -7,12 +7,16 @@ public class StudentOrderValidator {
     static void checkAll() {
         StudentOrder so = readStudentOrder();
 
-        AnswerCityRegister cityRegister = checkCityRegister(so);
-        AnswerWedding wedAnswer = checkWedding(so);
-        AnswerChildren childAnswer = checkChildren(so);
-        AnswerStudent studentAnswer = checkStudent(so);
+        if (so == null) {
+            return;
+        } else {
+            AnswerCityRegister cityRegister = checkCityRegister(so);
+            AnswerWedding wedAnswer = checkWedding(so);
+            AnswerChildren childAnswer = checkChildren(so);
+            AnswerStudent studentAnswer = checkStudent(so);
 
-        sendMail(so);
+            sendMail(so);
+        }
     }
 
     static StudentOrder readStudentOrder() {
