@@ -45,22 +45,23 @@ public class StudentOrderValidator {
     }
 
     static AnswerWedding checkWedding(StudentOrder so) {
-        System.out.println("wedding проверяется");
-        return new AnswerWedding();
+        WeddingValidator wv = new WeddingValidator();
+        return wv.checkWedding(so);
     }
 
     static AnswerChildren checkChildren(StudentOrder so) {
-        System.out.println("children проверяется");
-        return new AnswerChildren();
+        ChildrenValidator cv = new ChildrenValidator();
+        return cv.checkChildren(so);
     }
 
     static AnswerStudent checkStudent(StudentOrder so) {
-        System.out.println("student проверяется");
-        return new AnswerStudent();
+        StudentValidator sv = new StudentValidator();
+        return sv.checkStudent(so);
     }
 
     static void sendMail(StudentOrder so) {
-        System.out.println("mail отправлен");
+        MailSender ms = new MailSender();
+        ms.sendMail(so);
     }
 
 }
