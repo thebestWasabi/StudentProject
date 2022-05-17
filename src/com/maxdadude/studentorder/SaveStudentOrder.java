@@ -1,3 +1,7 @@
+package com.maxdadude.studentorder;
+
+import com.maxdadude.studentorder.domain.StudentOrder;
+
 public class SaveStudentOrder {
 
     public static void main(String[] args) {

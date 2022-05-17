@@ -1,3 +1,12 @@
+package com.maxdadude.studentorder;
+
+import com.maxdadude.studentorder.domain.*;
+import com.maxdadude.studentorder.mail.MailSender;
+import com.maxdadude.studentorder.validator.ChildrenValidator;
+import com.maxdadude.studentorder.validator.CityRegisterValidator;
+import com.maxdadude.studentorder.validator.StudentValidator;
+import com.maxdadude.studentorder.validator.WeddingValidator;
+
 public class StudentOrderValidator {
 
     public static void main(String[] args) {
@@ -34,12 +43,10 @@ public class StudentOrderValidator {
     static AnswerCityRegister checkCityRegister(StudentOrder so) {
         CityRegisterValidator crv1 = new CityRegisterValidator();
         crv1.hostName = "Host1";
-
-        CityRegisterValidator crv2 = new CityRegisterValidator();
-        crv2.hostName = "Host2";
+        crv1.login = "Login1";
+        crv1.password = "Password1";
 
         AnswerCityRegister ans1 = crv1.checkCityRegister(so);
-        AnswerCityRegister ans2 = crv2.checkCityRegister(so);
 
         return ans1;
     }
