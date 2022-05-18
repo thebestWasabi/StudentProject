@@ -9,6 +9,20 @@ import com.maxdadude.studentorder.validator.WeddingValidator;
 
 public class StudentOrderValidator {
 
+    private CityRegisterValidator cityRegisterVal;
+    private WeddingValidator weddingVal;
+    private ChildrenValidator childrenVal;
+    private StudentValidator studentVal;
+    private MailSender mailSender;
+
+    public StudentOrderValidator() {
+        cityRegisterVal = new CityRegisterValidator();
+        weddingVal = new WeddingValidator();
+        childrenVal = new ChildrenValidator();
+        studentVal = new StudentValidator();
+        mailSender = new MailSender();
+    }
+
     public static void main(String[] args) {
         checkAll();
     }

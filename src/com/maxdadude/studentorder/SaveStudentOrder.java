@@ -1,5 +1,6 @@
 package com.maxdadude.studentorder;
 
+import com.maxdadude.studentorder.domain.Adult;
 import com.maxdadude.studentorder.domain.StudentOrder;
 
 public class SaveStudentOrder {
@@ -14,6 +15,13 @@ public class SaveStudentOrder {
         long answer = 199;
         System.out.println("saveStudentOrder 1: ");
         return answer;
+    }
+
+    static StudentOrder buildStudentOrder() {
+        StudentOrder so = new StudentOrder();
+        Adult husband = new Adult();
+        System.out.println(husband.getSurName());
+        return so;
     }
 
 }
