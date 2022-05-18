@@ -2,7 +2,7 @@ package com.maxdadude.studentorder.domain;
 
 import java.time.LocalDate;
 
-public class Child {
+public class Child extends Person {
 
     private String certificateNumber;
     private LocalDate issueDate;

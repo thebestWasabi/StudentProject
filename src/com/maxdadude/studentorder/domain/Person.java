@@ -8,7 +8,6 @@ public class Person {
     private String givenName;
     private String patronymic;
     private LocalDate dateOfBirth;
-    private String postCode;
     private Address address;
 
     public String getSurName() {
@@ -41,14 +40,6 @@ public class Person {
 
     public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
-    }
-
-    public String getPostCode() {
-        return postCode;
-    }
-
-    public void setPostCode(String postCode) {
-        this.postCode = postCode;
     }
 
     public Address getAddress() {
