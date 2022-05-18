@@ -24,10 +24,11 @@ public class StudentOrderValidator {
     }
 
     public static void main(String[] args) {
-        checkAll();
+        StudentOrderValidator sor = new StudentOrderValidator();
+        sor.checkAll();
     }
 
-    static void checkAll() {
+    public void checkAll() {
         StudentOrder so = readStudentOrder();
 
         while (true) {
@@ -49,40 +50,29 @@ public class StudentOrderValidator {
         }
     }
 
-    static StudentOrder readStudentOrder() {
+    public StudentOrder readStudentOrder() {
         StudentOrder so = new StudentOrder();
         return so;
     }
 
-    static AnswerCityRegister checkCityRegister(StudentOrder so) {
-        CityRegisterValidator crv1 = new CityRegisterValidator();
-        crv1.hostName = "Host1";
-        crv1.login = "Login1";
-        crv1.password = "Password1";
-
-        AnswerCityRegister ans1 = crv1.checkCityRegister(so);
-
-        return ans1;
+    public AnswerCityRegister checkCityRegister(StudentOrder so) {
+        return cityRegisterVal.checkCityRegister(so);
     }
 
-    static AnswerWedding checkWedding(StudentOrder so) {
-        WeddingValidator wv = new WeddingValidator();
-        return wv.checkWedding(so);
+    public AnswerWedding checkWedding(StudentOrder so) {
+       return weddingVal.checkWedding(so);
     }
 
-    static AnswerChildren checkChildren(StudentOrder so) {
-        ChildrenValidator cv = new ChildrenValidator();
-        return cv.checkChildren(so);
+    public AnswerChildren checkChildren(StudentOrder so) {
+        return childrenVal.checkChildren(so);
     }
 
-    static AnswerStudent checkStudent(StudentOrder so) {
-        StudentValidator sv = new StudentValidator();
-        return sv.checkStudent(so);
+    public AnswerStudent checkStudent(StudentOrder so) {
+        return studentVal.checkStudent(so);
     }
 
-    static void sendMail(StudentOrder so) {
-        MailSender ms = new MailSender();
-        ms.sendMail(so);
+    public void sendMail(StudentOrder so) {
+        mailSender.sendMail(so);
     }
 
 }
