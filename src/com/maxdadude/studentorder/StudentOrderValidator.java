@@ -29,30 +29,29 @@ public class StudentOrderValidator {
     }
 
     public void checkAll() {
-        StudentOrder so = readStudentOrder();
+        StudentOrder[] soArray = readStudentOrders();
 
-        while (true) {
-            if (so == null) {
-                break;
-            } else {
-                AnswerCityRegister cityAnswer = checkCityRegister(so);
-                if (!cityAnswer.success) {
-                    //continue;
-                    break;
-                }
-
-                AnswerWedding wedAnswer = checkWedding(so);
-                AnswerChildren childAnswer = checkChildren(so);
-                AnswerStudent studentAnswer = checkStudent(so);
-
-                sendMail(so);
-            }
+        for (int c = 0; c < soArray.length; c++) {
+            checkOneOrder(soArray[c]);
         }
     }
 
-    public StudentOrder readStudentOrder() {
-        StudentOrder so = new StudentOrder();
-        return so;
+    public StudentOrder[] readStudentOrders() {
+        StudentOrder[] soArray = new StudentOrder[3];
+
+        for (int c = 0; c < soArray.length; c++) {
+            soArray[c] = SaveStudentOrder.buildStudentOrder(c);
+        }
+
+        return soArray;
+    }
+
+    public void checkOneOrder(StudentOrder so) {
+        AnswerCityRegister cityAnswer = checkCityRegister(so);
+        AnswerWedding wedAnswer = checkWedding(so);
+        AnswerChildren childAnswer = checkChildren(so);
+        AnswerStudent studentAnswer = checkStudent(so);
+        sendMail(so);
     }
 
     public AnswerCityRegister checkCityRegister(StudentOrder so) {
@@ -60,7 +59,7 @@ public class StudentOrderValidator {
     }
 
     public AnswerWedding checkWedding(StudentOrder so) {
-       return weddingVal.checkWedding(so);
+        return weddingVal.checkWedding(so);
     }
 
     public AnswerChildren checkChildren(StudentOrder so) {

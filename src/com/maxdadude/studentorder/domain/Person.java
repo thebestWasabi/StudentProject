@@ -2,13 +2,17 @@ package com.maxdadude.studentorder.domain;
 
 import java.time.LocalDate;
 
-public class Person {
+public abstract class Person {
 
     private String surName;
     private String givenName;
     private String patronymic;
     private LocalDate dateOfBirth;
     private Address address;
+
+    public Person() {
+        System.out.println("Person is created");
+    }
 
     public String getSurName() {
         return surName;
