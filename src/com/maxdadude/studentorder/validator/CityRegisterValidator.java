@@ -19,6 +19,7 @@ public class CityRegisterValidator {
     }
 
     public AnswerCityRegister checkCityRegister(StudentOrder so) {
+
         try {
             CityRegisterCheckerResponse hAns = personChecker.checkerPerson(so.getHusband());
             CityRegisterCheckerResponse wAns = personChecker.checkerPerson(so.getWife());

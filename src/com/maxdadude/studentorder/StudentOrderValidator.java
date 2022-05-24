@@ -44,7 +44,7 @@ public class StudentOrderValidator {
     }
 
     public StudentOrder[] readStudentOrders() {
-        StudentOrder[] soArray = new StudentOrder[3];
+        StudentOrder[] soArray = new StudentOrder[1];
 
         for (int c = 0; c < soArray.length; c++) {
             soArray[c] = SaveStudentOrder.buildStudentOrder(c);
@@ -55,10 +55,10 @@ public class StudentOrderValidator {
 
     public void checkOneOrder(StudentOrder so) {
         AnswerCityRegister cityAnswer = checkCityRegister(so);
-        AnswerWedding wedAnswer = checkWedding(so);
-        AnswerChildren childAnswer = checkChildren(so);
-        AnswerStudent studentAnswer = checkStudent(so);
-        sendMail(so);
+//        AnswerWedding wedAnswer = checkWedding(so);
+//        AnswerChildren childAnswer = checkChildren(so);
+//        AnswerStudent studentAnswer = checkStudent(so);
+//        sendMail(so);
     }
 
     public AnswerCityRegister checkCityRegister(StudentOrder so) {
